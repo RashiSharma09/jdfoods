@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="J.DHULL FOODS - Go to our new website at jdfoods.in">
+  <title>J.DHULL FOODS | Welcome to Our New Site</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #d4a373;
+      --primary-light: #fefae0;
+      --accent: #e76f51;
+      --gold-gradient: linear-gradient(135deg, #faedcd 0%, #d4a373 50%, #bc6c25 100%);
+      --bg-dark: #0f1115;
+      --card-bg: rgba(26, 29, 36, 0.7);
+      --card-border: rgba(212, 163, 115, 0.2);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--bg-dark);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      overflow-x: hidden;
+      position: relative;
+      padding: 1.5rem;
+    }
+
+    /* Ambient background gradient orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.45;
+      animation: float 14s ease-in-out infinite alternate;
+    }
+
+    .orb-1 {
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, #bc6c25, #dda15e);
+      top: -10%;
+      left: -10%;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #606c38, #283618);
+      bottom: -15%;
+      right: -10%;
+      animation-duration: 18s;
+      animation-direction: alternate-reverse;
+    }
+
+    .orb-3 {
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle, #e76f51, #9d0208);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.15;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      50% {
+        transform: translate(40px, 30px) scale(1.08);
+      }
+      100% {
+        transform: translate(-30px, -20px) scale(0.95);
+      }
+    }
+
+    /* Subtle grid pattern overlay */
+    .bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Main Card */
+    .card-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 580px;
+      background: var(--card-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 3.5rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 
+                  0 0 40px rgba(212, 163, 115, 0.08);
+      animation: appear 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(212, 163, 115, 0.12);
+      border: 1px solid rgba(212, 163, 115, 0.35);
+      color: #faedcd;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 2rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      background-color: #2ec4b6;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #2ec4b6;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Logo / Icon Symbol */
+    .brand-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.5rem;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #1f232d, #14171d);
+      border: 1px solid rgba(212, 163, 115, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+      color: var(--primary);
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+
+    .brand-icon:hover {
+      transform: scale(1.06) rotate(3deg);
+      border-color: #faedcd;
+    }
+
+    .brand-icon svg {
+      width: 36px;
+      height: 36px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Brand Name */
+    .company-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 20px rgba(212, 163, 115, 0.2);
+    }
+
+    /* Sub message */
+    .main-message {
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #f1f5f9;
+      margin-bottom: 0.9rem;
+    }
+
+    .subtext {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0 auto 2.4rem;
+      font-weight: 400;
+    }
+
+    /* Action Button */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 380px;
+      padding: 1.1rem 2rem;
+      background: linear-gradient(135deg, #dda15e 0%, #bc6c25 100%);
+      color: #0d0f12;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(188, 108, 37, 0.35),
+                  inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.7s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px rgba(188, 108, 37, 0.45);
+      background: linear-gradient(135deg, #faedcd 0%, #dda15e 100%);
+      color: #000;
+    }
+
+    .cta-button:hover::before {
+      left: 100%;
+    }
+
+    .cta-button svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-button:hover svg {
+      transform: translateX(4px) translateY(-2px);
+    }
+
+    /* Direct URL Link */
+    .direct-link-container {
+      margin-top: 1.8rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .direct-link {
+      color: #dda15e;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(221, 161, 94, 0.6);
+      padding-bottom: 2px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .direct-link:hover {
+      color: #faedcd;
+      border-bottom-style: solid;
+    }
+
+    /* Auto redirect notice */
+    .redirect-timer {
+      margin-top: 1.8rem;
+      font-size: 0.82rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .progress-bar-bg {
+      width: 160px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      overflow: hidden;
+      margin: 8px auto 0;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--primary);
+      border-radius: 999px;
+      transition: width 0.1s linear;
+    }
+
+    /* Footer */
+    .card-footer {
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      color: #64748b;
+      letter-spacing: 0.04em;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .card-container {
+        padding: 2.5rem 1.5rem;
+      }
+      .company-title {
+        font-size: 2.15rem;
+      }
+      .main-message {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient light blobs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="bg-pattern"></div>
+
+  <!-- Center Card -->
+  <main class="card-container">
+    
+    <!-- Top badge -->
+    <div class="badge">
+      <span class="badge-dot"></span>
+      Website Relocation
+    </div>
+
+    <!-- Elegant Emblem -->
+    <div class="brand-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <!-- Modern wheat/grain motif symbolizing premium foods -->
+        <path d="M12 2L12 22M12 22C12 22 10 18 6 17C2 16 2 11 2 11C6 11 10 13 12 17M12 22C12 22 14 18 18 17C22 16 22 11 22 11C18 11 14 13 12 17M12 13C12 13 10 9 7 8C4 7 4 3 4 3C7 3 10 5 12 9M12 13C12 13 14 9 17 8C20 7 20 3 20 3C17 3 14 5 12 9"/>
+      </svg>
+    </div>
+
+    <!-- Company Name -->
+    <h1 class="company-title">J.DHULL FOODS</h1>
+
+    <!-- Message -->
+    <h2 class="main-message">GO TO OUR NEW SITE</h2>
+
+    <p class="subtext">
+      We have upgraded our online experience. Discover our premium foods, authentic quality, and latest offerings on our official portal.
+    </p>
+
+    <!-- Main Call to Action -->
+    <a href="https://jdfoods.in" class="cta-button" id="ctaBtn" rel="noopener noreferrer">
+      <span>Go to jdfoods.in</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"></line>
+        <polyline points="7 7 17 7 17 17"></polyline>
+      </svg>
+    </a>
+
+    <!-- Direct URL info -->
+    <div class="direct-link-container">
+      URL: <a href="https://jdfoods.in" class="direct-link">https://jdfoods.in</a>
+    </div>
+
+    <!-- Auto-redirect progress bar -->
+    <div class="redirect-timer" id="timerNotice">
+      Redirecting automatically in <span id="secondsRemaining" style="font-weight: 700; color: #faedcd;">6</span>s...
+    </div>
+    <div class="progress-bar-bg" id="progressBg">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="card-footer">
+      &copy; 2026 J.DHULL FOODS &bull; All Rights Reserved
+    </footer>
+
+  </main>
+
+  <script>
+    // Smooth countdown redirect
+    const TARGET_URL = 'https://jdfoods.in';
+    const DURATION = 6000; // 6 seconds
+    const startTime = Date.now();
+    let isCancelled = false;
+
+    const secondsElem = document.getElementById('secondsRemaining');
+    const fillElem = document.getElementById('progressFill');
+
+    function updateCountdown() {
+      if (isCancelled) return;
+      const elapsed = Date.now() - startTime;
+      const remaining = Math.max(0, DURATION - elapsed);
+      const percentage = Math.min(100, (elapsed / DURATION) * 100);
+
+      fillElem.style.width = percentage + '%';
+      secondsElem.textContent = Math.ceil(remaining / 1000);
+
+      if (remaining <= 0) {
+        window.location.href = TARGET_URL;
+      } else {
+        requestAnimationFrame(updateCountdown);
+      }
+    }
+
+    // Start countdown
+    requestAnimationFrame(updateCountdown);
+
+    // If user clicks on button or link manually, navigate right away
+    document.getElementById('ctaBtn').addEventListener('click', () => {
+      isCancelled = true;
+    });
+
+    // Pause redirect if user is interacting with text/selecting
+    window.addEventListener('blur', () => {
+      // Keep running smoothly
+    });
+  </script>
+</body>
+</html>
