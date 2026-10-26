@@ -1,0 +1,27 @@
+{
+  "name": "jdfoods",
+  "version": "1.0.0",
+  "description": "Official redirect and landing page for J.DHULL FOODS (jdfoods.in)",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RashiSharma09/jdfoods.git"
+  },
+  "keywords": [
+    "j-dhull-foods",
+    "jdfoods",
+    "redirect",
+    "landing-page"
+  ],
+  "author": "RashiSharma09 <rashi091104@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RashiSharma09/jdfoods/issues"
+  },
+  "homepage": "https://jdfoods.in"
+}
